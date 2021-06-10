@@ -1,68 +1,68 @@
-import React from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-class Dropdown extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      isExpanded: false,
-      selectedItem: ''
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.selectItem = this.selectItem.bind(this);
-  }
-
-  // Triggers then user clicks the dropdown to open it
-  handleClick(e) {
-    this.setState(prevState => {
-      return {
-        isExpanded: !prevState.isExpanded
-      };
-    });
-
-    // Hide the dropdown if user clicks anywhere else
-    window.addEventListener('click', globalEvent => {
-      if (this.state.isExpanded && e.target !== globalEvent.target) {
-        this.setState({ isExpanded: false });
+function useOutside(ref, isExpanded, setExpand) {
+  useEffect(() => {
+    // If clicked on outside of element
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        if (isExpanded) setExpand(false);
       }
-    });
-  }
+    }
 
-  // Triggers when user selects an item fron the dropdown
-  selectItem(e) {
-    this.setState({
-      selectedItem: e.target.textContent || '',
-      isExpanded: false
-    });
-  }
-
-  componentDidUpdate() {
-    this.props.onSelect(this.state.selectedItem);
-  }
-
-  render() {
-    const { regions } = this.props;
-    const bodyStyle = {
-      display: this.state.isExpanded ? 'block' : 'none'
+    // Bind the event listener
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener('click', handleClickOutside);
     };
+  }, [ref, isExpanded, setExpand]);
+}
 
-    // Mapping the dropdown array with list-items
-    const arr = regions.map(item => (
-      <li onClick={e => this.selectItem(e)} key={item.id}>
-        {item.name}
-      </li>
-    ));
+function Dropdown(props) {
+  // Initializing hooks
+  const [isExpanded, setExpand] = useState(false);
+  const [selectedItem, setSelectedItem] = useState('');
 
-    return (
-      <div className="select-box">
-        <div onClick={this.handleClick} className="input region-filter">
-          {this.state.selectedItem || 'Filter by Region'}
-        </div>
-        <div style={bodyStyle} className="select-box-body input">
-          <ul>{arr}</ul>
-        </div>
-      </div>
-    );
+  const wrapperRef = useRef(null);
+  useOutside(wrapperRef, isExpanded, setExpand);
+
+  // When user clicks on the dropdown, toggle 'isExpanded' state
+  function handleClick() {
+    setExpand(!isExpanded);
   }
+
+  // When user clicks on item
+  function selectItem(event) {
+    setSelectedItem(event.target.textContent || '');
+    setExpand(false);
+  }
+
+  const { regions } = props;
+  const bodyStyle = {
+    display: isExpanded ? 'block' : 'none'
+  };
+
+  // Mapping the dropdown array with list-items
+  const arr = regions.map(item => (
+    <li onClick={selectItem} key={item.id}>
+      {item.name}
+    </li>
+  ));
+
+  useEffect(() => {
+    props.onSelect(selectedItem);
+  });
+
+  return (
+    <div ref={wrapperRef} className="select-box">
+      <div onClick={handleClick} className="input region-filter">
+        {selectedItem || 'Filter by Region'}
+      </div>
+      <div style={bodyStyle} className="select-box-body input">
+        <ul>{arr}</ul>
+      </div>
+    </div>
+  );
 }
 
 export default Dropdown;
