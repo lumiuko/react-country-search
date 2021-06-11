@@ -104,11 +104,11 @@
     "code": "BTN"
   },
   {
-    "name": "Bolivia (Plurinational State of)",
+    "name": "Bolivia",
     "code": "BOL"
   },
   {
-    "name": "Bonaire, Sint Eustatius and Saba",
+    "name": "Bonaire",
     "code": "BES"
   },
   {
@@ -132,7 +132,7 @@
     "code": "IOT"
   },
   {
-    "name": "United States Minor Outlying Islands",
+    "name": "US Minor Outlying Islands",
     "code": "UMI"
   },
   {
@@ -200,7 +200,7 @@
     "code": "CXR"
   },
   {
-    "name": "Cocos (Keeling) Islands",
+    "name": "Cocos Islands",
     "code": "CCK"
   },
   {
@@ -216,7 +216,7 @@
     "code": "COG"
   },
   {
-    "name": "Congo (Democratic Republic of the)",
+    "name": "Congo",
     "code": "COD"
   },
   {
@@ -292,7 +292,7 @@
     "code": "ETH"
   },
   {
-    "name": "Falkland Islands (Malvinas)",
+    "name": "Falkland Islands",
     "code": "FLK"
   },
   {
@@ -428,7 +428,7 @@
     "code": "CIV"
   },
   {
-    "name": "Iran (Islamic Republic of)",
+    "name": "Iran",
     "code": "IRN"
   },
   {
@@ -488,7 +488,7 @@
     "code": "KGZ"
   },
   {
-    "name": "Lao People's Democratic Republic",
+    "name": "Laos",
     "code": "LAO"
   },
   {
@@ -528,7 +528,7 @@
     "code": "MAC"
   },
   {
-    "name": "Macedonia (the former Yugoslav Republic of)",
+    "name": "Macedonia",
     "code": "MKD"
   },
   {
@@ -580,11 +580,11 @@
     "code": "MEX"
   },
   {
-    "name": "Micronesia (Federated States of)",
+    "name": "Micronesia",
     "code": "FSM"
   },
   {
-    "name": "Moldova (Republic of)",
+    "name": "Moldova",
     "code": "MDA"
   },
   {
@@ -660,7 +660,7 @@
     "code": "NFK"
   },
   {
-    "name": "Korea (Democratic People's Republic of)",
+    "name": "North Korea",
     "code": "PRK"
   },
   {
@@ -728,7 +728,7 @@
     "code": "QAT"
   },
   {
-    "name": "Republic of Kosovo",
+    "name": "Kosovo",
     "code": "KOS"
   },
   {
@@ -740,7 +740,7 @@
     "code": "ROU"
   },
   {
-    "name": "Russian Federation",
+    "name": "Russia",
     "code": "RUS"
   },
   {
@@ -752,7 +752,7 @@
     "code": "BLM"
   },
   {
-    "name": "Saint Helena, Ascension and Tristan da Cunha",
+    "name": "Saint Helena",
     "code": "SHN"
   },
   {
@@ -764,7 +764,7 @@
     "code": "LCA"
   },
   {
-    "name": "Saint Martin (French part)",
+    "name": "Saint Martin",
     "code": "MAF"
   },
   {
@@ -812,7 +812,7 @@
     "code": "SGP"
   },
   {
-    "name": "Sint Maarten (Dutch part)",
+    "name": "Sint Maarten",
     "code": "SXM"
   },
   {
@@ -836,11 +836,11 @@
     "code": "ZAF"
   },
   {
-    "name": "South Georgia and the South Sandwich Islands",
+    "name": "South Georgia",
     "code": "SGS"
   },
   {
-    "name": "Korea (Republic of)",
+    "name": "South Korea",
     "code": "KOR"
   },
   {
@@ -892,7 +892,7 @@
     "code": "TJK"
   },
   {
-    "name": "Tanzania, United Republic of",
+    "name": "Tanzania",
     "code": "TZA"
   },
   {
@@ -952,11 +952,11 @@
     "code": "ARE"
   },
   {
-    "name": "United Kingdom of Great Britain and Northern Ireland",
+    "name": "United Kingdom",
     "code": "GBR"
   },
   {
-    "name": "United States of America",
+    "name": "United States",
     "code": "USA"
   },
   {
@@ -972,7 +972,7 @@
     "code": "VUT"
   },
   {
-    "name": "Venezuela (Bolivarian Republic of)",
+    "name": "Venezuela",
     "code": "VEN"
   },
   {
