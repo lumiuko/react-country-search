@@ -1,8 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 
+import blackIcon from '../../img/close-circle-outline-black.svg';
+import whiteIcon from '../../img/close-circle-outline-white.svg';
+
 function useOutside(ref, isExpanded, setExpand) {
   useEffect(() => {
-    // If clicked on outside of element
+    // If clicked outside of element
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
         if (isExpanded) setExpand(false);
@@ -37,6 +40,12 @@ function Dropdown(props) {
     setExpand(false);
   }
 
+  function clearFilter(event) {
+    event.stopPropagation();
+    setSelectedItem('');
+    setExpand(false);
+  }
+
   const { regions } = props;
   const bodyStyle = {
     display: isExpanded ? 'block' : 'none'
@@ -56,7 +65,10 @@ function Dropdown(props) {
   return (
     <div ref={wrapperRef} className="select-box">
       <div onClick={handleClick} className="input region-filter">
-        {selectedItem || 'Filter by Region'}
+        <div className="placeholder">{selectedItem || 'Filter by Region'}</div>
+        <div className="clear-filter" onClick={clearFilter} style={{ display: selectedItem ? 'block' : 'none' }}>
+          <img src={props.isDarkTheme ? whiteIcon : blackIcon} alt="" aria-hidden="true" />
+        </div>
       </div>
       <div style={bodyStyle} className="select-box-body input">
         <ul>{arr}</ul>

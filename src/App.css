@@ -55,6 +55,7 @@ a {
   display: flex;
   user-select: none;
 }
+
 .darkmode-icon {
   width: 20px;
   margin-right: 7px;
@@ -94,9 +95,7 @@ a {
 }
 
 .country-search {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'%3E%3Ctitle%3ESearch%3C/title%3E%3Cpath d='M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z' fill='none' stroke='gray' stroke-miterlimit='10' stroke-width='32'/%3E%3Cpath fill='none' stroke='gray' stroke-linecap='round' stroke-miterlimit='10' stroke-width='32' d='M338.29 338.29L448 448'/%3E%3C/svg%3E")
-      no-repeat 25px 20px,
-    var(--elements-color);
+  background: url('img/search-outline-black.svg') no-repeat 25px 20px, var(--elements-color);
   background-size: 25px;
 }
 
@@ -105,9 +104,7 @@ a {
 }
 
 .theme-dark .country-search {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'%3E%3Ctitle%3ESearch%3C/title%3E%3Cpath d='M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z' fill='none' stroke='white' stroke-miterlimit='10' stroke-width='32'/%3E%3Cpath fill='none' stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='32' d='M338.29 338.29L448 448'/%3E%3C/svg%3E")
-      no-repeat 25px 20px,
-    var(--elements-color);
+  background: url('img/search-outline-white.svg') no-repeat 25px 20px, var(--elements-color);
   background-size: 25px;
 }
 
@@ -116,20 +113,20 @@ a {
   padding-left: 25px;
   padding-right: 25px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .region-filter {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'%3E%3Ctitle%3EChevron Down%3C/title%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M112 184l144 144 144-144'/%3E%3C/svg%3E"),
-    var(--elements-color);
+  background: url('img/chevron-down-outline-black.svg'), var(--elements-color);
   background-size: 18px;
   background-position: 175px center;
   background-repeat: no-repeat;
 }
 
 .theme-dark .region-filter {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'%3E%3Ctitle%3EChevron Down%3C/title%3E%3Cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M112 184l144 144 144-144'/%3E%3C/svg%3E")
-      no-repeat,
-    var(--elements-color);
+  background: url('img/chevron-down-outline-white.svg') no-repeat, var(--elements-color);
   background-size: 18px;
   background-position: 175px center;
   background-repeat: no-repeat;
@@ -137,6 +134,14 @@ a {
 
 .region-filter::placeholder {
   color: var(--text-color);
+}
+
+.clear-filter {
+  height: 19px;
+  margin-right: 20px;
+}
+.clear-filter img {
+  width: 22px;
 }
 
 .cards {
@@ -206,4 +211,39 @@ a {
 
 .search-error-message {
   line-break: anywhere;
+}
+
+.country-view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.country-info {
+  flex-basis: 45%;
+}
+
+.flag {
+  width: 45%;
+  aspect-ratio: 16/11;
+  object-fit: cover;
+}
+
+.country-details {
+  line-height: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.country-details .col {
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 80px 0;
+  background: var(--elements-color);
+  padding: 10px 40px;
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 3px 10px 1px;
 }

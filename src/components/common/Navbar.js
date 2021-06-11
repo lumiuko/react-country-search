@@ -5,9 +5,7 @@ function Navbar(props) {
   return (
     <nav className="navbar">
       <div className="container">
-        <h1 className="navbar-logo">
-          <a href="/">Where in the world?</a>
-        </h1>
+        <h1 className="navbar-logo">Where in the world?</h1>
         <span className="dark-btn" onClick={e => props.themeEventHandler(e)}>
           <img
             src={iconURL}
