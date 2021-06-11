@@ -2,21 +2,37 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+import countryCodes from '../../json/country-codes.json';
+import loaderIcon from '../../img/loader.svg';
+
 function CountryPage(props) {
   const { code } = useParams();
   const [currentCountry, setCountryData] = useState({});
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!props.countriesList.length) {
-      axios.get(`https://restcountries.eu/rest/v2/alpha/${code}`).then(res => setCountryData(res.data));
+      setLoading(true);
+      axios.get(`https://restcountries.eu/rest/v2/alpha/${code.toUpperCase()}`).then(res => {
+        setCountryData(res.data);
+        setLoading(false);
+      });
     } else {
-      setCountryData(props.countriesList.find(country => country.alpha3Code === code));
+      setCountryData(props.countriesList.find(country => country.alpha3Code === code.toUpperCase()));
     }
   }, [props.countriesList, code]);
 
+  if (isLoading) {
+    return (
+      <div className="container" style={{ height: '80vh', display: 'grid', placeItems: 'center' }}>
+        <img src={loaderIcon} alt="" style={{ width: '200px', height: '200px' }} />
+      </div>
+    );
+  }
+
   return (
     <div className="container">
-      <Link to="/" className="btn">
+      <Link to="/" className="btn btn-back">
         Back
       </Link>
       <div className="country-view">
@@ -56,6 +72,20 @@ function CountryPage(props) {
               </div>
             </div>
           </div>
+          {currentCountry.borders?.length > 0 && (
+            <div className="borders">
+              <div className="text-bold" style={{ flex: '3' }}>
+                Border countries:{' '}
+              </div>
+              <div style={{ flex: '10' }}>
+                {currentCountry.borders.map((country, index) => (
+                  <Link to={`/country/${country}`} className="btn btn-small" key={index}>
+                    {countryCodes.find(item => item.code === country).name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

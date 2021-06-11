@@ -63,7 +63,7 @@ class CardsList extends React.Component {
     // Otherwise render country card components
     const countryElements = this.state.countries.map(country => {
       return (
-        <Link to={`/country/${country.alpha3Code}`} key={country.name}>
+        <Link to={`/country/${country.alpha3Code.toLowerCase()}`} key={country.name}>
           <Card country={country} />
         </Link>
       );

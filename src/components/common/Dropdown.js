@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
-import blackIcon from '../../img/close-circle-outline-black.svg';
-import whiteIcon from '../../img/close-circle-outline-white.svg';
+import blackIcon from '../../img/icon/close-circle-outline-black.svg';
+import whiteIcon from '../../img/icon/close-circle-outline-white.svg';
 
 function useOutside(ref, isExpanded, setExpand) {
   useEffect(() => {
