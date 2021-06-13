@@ -1,6 +1,8 @@
 import Dropdown from '../common/Dropdown';
 import regions from '../../json/regions';
 
+import './Options.scss';
+
 function Options(props) {
   return (
     <div className="options">

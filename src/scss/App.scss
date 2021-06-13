@@ -1,0 +1,64 @@
+:root {
+  --background-color: hsl(0, 0%, 98%);
+  --elements-color: hsl(0, 0%, 100%);
+  --text-color: hsl(200, 15%, 8%);
+  --hover-color: hsl(0, 0%, 90%);
+}
+
+.theme-dark {
+  --background-color: hsl(207, 26%, 17%);
+  --elements-color: hsl(209, 23%, 22%);
+  --text-color: hsl(0, 0%, 100%);
+  --hover-color: hsl(209, 23%, 18%);
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+* {
+  transition: background 0.2s;
+}
+
+a {
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--elements-color);
+  padding: 10px 50px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 10px 1px;
+  position: relative;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-3px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.search-error-message {
+  line-break: anywhere;
+}

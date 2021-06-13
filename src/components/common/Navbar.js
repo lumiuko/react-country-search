@@ -1,3 +1,5 @@
+import './Navbar.scss';
+
 function Navbar(props) {
   const iconURL = props.isDarkTheme
     ? 'https://unpkg.com/ionicons@5.5.1/dist/svg/moon.svg'

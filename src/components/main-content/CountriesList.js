@@ -4,18 +4,14 @@ import axios from 'axios';
 
 import Card from './Card';
 import Skeletons from '../common/Skeletons';
+import './CountriesList.scss';
 
-class CardsList extends React.Component {
-  constructor() {
-    super();
-
-    // Setting up basic state
-    this.state = {
-      loading: false,
-      allCountries: [],
-      countries: []
-    };
-  }
+class CountriesList extends React.Component {
+  state = {
+    loading: false,
+    allCountries: [],
+    countries: []
+  };
 
   componentDidMount() {
     this.setState({ loading: true });
@@ -72,4 +68,4 @@ class CardsList extends React.Component {
   }
 }
 
-export default CardsList;
+export default CountriesList;

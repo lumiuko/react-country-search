@@ -1,0 +1,51 @@
+.select-box-body {
+  position: absolute;
+  transform: translateY(5px);
+  width: 210px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--text-color);
+  background: var(--elements-color);
+  font-size: 0.9rem;
+  transition: opacity 300ms ease-in-out;
+
+  ul {
+    list-style: none;
+    line-height: 25px;
+    padding: 0;
+  }
+
+  li {
+    padding: 0 25px;
+    cursor: pointer;
+    &:hover {
+      background: var(--hover-color);
+    }
+  }
+}
+
+/* Animations */
+.select-box-body-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.select-box-body-enter-active {
+  opacity: 1;
+  transform: translateY(5px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.select-box-body-exit {
+  opacity: 1;
+}
+
+.select-box-body-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}

@@ -1,0 +1,85 @@
+@import '../../scss/_mixins.scss';
+
+.country-view {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include responsive(800px) {
+    flex-direction: column;
+  }
+}
+
+.country-info {
+  flex-basis: 45%;
+  @include responsive(800px) {
+    width: 100%;
+    margin-top: 30px;
+    font-size: 0.85rem;
+  }
+}
+
+.flag {
+  width: 45%;
+  aspect-ratio: 16/11;
+  object-fit: cover;
+  @include responsive(800px) {
+    width: 100%;
+  }
+}
+
+.country-details {
+  line-height: 35px;
+  display: flex;
+  justify-content: space-between;
+  @include responsive(1200px) {
+    flex-direction: column;
+  }
+}
+
+.borders {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  @include responsive(1200px) {
+    flex-wrap: wrap;
+  }
+  div {
+    @include responsive(1200px) {
+      flex: initial !important;
+    }
+  }
+}
+
+.btn-small {
+  padding: 5px 25px;
+  margin: 5px 10px;
+  @include responsive(1200px) {
+    margin: 5px 10px 10px 0;
+  }
+}
+
+.btn-back::before {
+  position: absolute;
+  content: '';
+  width: 15px;
+  height: 15px;
+  left: 25px;
+  top: 13px;
+  background: url('../../img/icon/left-arrow-black.svg') no-repeat;
+  background-size: 15px;
+}
+
+.col:not(:last-child) {
+  @include responsive(1200px) {
+    margin-bottom: 10px;
+  }
+}
+
+.btn-back {
+  margin: 5rem 0;
+}
+
+.theme-dark .btn-back::before {
+  background: url('../../img/icon/left-arrow-white.svg') no-repeat;
+}

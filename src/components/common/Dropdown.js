@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
+import './Dropdown.scss';
 import blackIcon from '../../img/icon/close-circle-outline-black.svg';
 import whiteIcon from '../../img/icon/close-circle-outline-white.svg';
 
@@ -47,12 +49,9 @@ function Dropdown(props) {
   }
 
   const { regions } = props;
-  const bodyStyle = {
-    display: isExpanded ? 'block' : 'none'
-  };
 
   // Mapping the dropdown array with list-items
-  const arr = regions.map(item => (
+  const listItems = regions.map(item => (
     <li onClick={selectItem} key={item.id}>
       {item.name}
     </li>
@@ -64,15 +63,17 @@ function Dropdown(props) {
 
   return (
     <div ref={wrapperRef} className="select-box">
-      <div onClick={handleClick} className="input region-filter">
+      <div onClick={handleClick} className="region-filter">
         <div className="placeholder">{selectedItem || 'Filter by Region'}</div>
         <div className="clear-filter" onClick={clearFilter} style={{ display: selectedItem ? 'block' : 'none' }}>
           <img src={props.isDarkTheme ? whiteIcon : blackIcon} alt="" aria-hidden="true" />
         </div>
       </div>
-      <div style={bodyStyle} className="select-box-body input">
-        <ul>{arr}</ul>
-      </div>
+      <CSSTransition in={isExpanded} timeout={300} unmountOnExit classNames="select-box-body">
+        <div className="select-box-body">
+          <ul>{listItems}</ul>
+        </div>
+      </CSSTransition>
     </div>
   );
 }

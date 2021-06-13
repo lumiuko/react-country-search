@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import './App.css';
+import './scss/App.scss';
 
 import Navbar from './components/common/Navbar';
 import MainContent from './components/main-content/MainContent';
@@ -11,17 +11,13 @@ function App() {
   const [isDarkTheme, setTheme] = useState(localStorage.getItem('theme-color') === 'dark');
   const [countriesList, setCountriesData] = useState([]);
 
-  function themeEventHandler(e) {
-    e.preventDefault();
-    setTheme(!isDarkTheme);
+  function themeEventHandler(event) {
+    event.preventDefault();
+    setTheme(prevTheme => !prevTheme);
   }
 
   useEffect(() => {
-    if (isDarkTheme) {
-      document.body.classList.add('theme-dark');
-    } else {
-      document.body.classList.remove('theme-dark');
-    }
+    isDarkTheme ? document.body.classList.add('theme-dark') : document.body.classList.remove('theme-dark');
     localStorage.setItem('theme-color', isDarkTheme ? 'dark' : 'light');
   });
 

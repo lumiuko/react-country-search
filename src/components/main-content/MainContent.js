@@ -1,24 +1,20 @@
 import { useState } from 'react';
 
 import Options from './Options';
-import CardsList from './CardsList';
+import CountriesList from './CountriesList';
 
 function MainContent(props) {
   const [searchString, setSearch] = useState('');
   const [filterString, setFilter] = useState('');
 
-  function handleSearchChange(value) {
-    setSearch(value);
-  }
-
-  function handleFilterChange(value) {
-    setFilter(value);
-  }
-
   return (
     <div className="container">
-      <Options searchHandler={handleSearchChange} onFilterChange={handleFilterChange} isDarkTheme={props.isDarkTheme} />
-      <CardsList
+      <Options
+        searchHandler={value => setSearch(value)}
+        onFilterChange={value => setFilter(value)}
+        isDarkTheme={props.isDarkTheme}
+      />
+      <CountriesList
         searchQuery={searchString}
         filterQuery={filterString}
         sendCountriesList={props.sendCountriesList}

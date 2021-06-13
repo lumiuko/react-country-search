@@ -1,0 +1,34 @@
+@import '../../scss/_mixins.scss';
+
+.navbar {
+  background: var(--elements-color);
+  padding: 0.5rem 0;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 3px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @include responsive(470px) {
+    font-size: 0.7rem;
+  }
+}
+
+.navbar-logo a {
+  font-weight: 800;
+}
+
+.dark-btn {
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.darkmode-icon {
+  width: 1.2rem;
+  margin-right: 7px;
+}
