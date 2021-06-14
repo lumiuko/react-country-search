@@ -15,10 +15,9 @@
     transition: box-shadow 0.3s ease;
 
     img {
-      height: 45%;
+      height: 160px;
       width: 100%;
       object-fit: cover;
-      aspect-ratio: 16/9;
     }
 
     &:hover {
@@ -33,5 +32,12 @@
         line-height: 25px;
       }
     }
+  }
+}
+
+@supports (aspect-ratio: 16/9) {
+  .cards .card img {
+    aspect-ratio: 16/9;
+    height: auto;
   }
 }
