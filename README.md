@@ -8,7 +8,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -31,14 +31,15 @@ Users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode _(optional)_
 
-### Screenshot
+### Screenshots
 
 ![](./design/screenshot.jpg)
+
 ![](./design/screenshot-dark.jpg)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/react-country-search-app-using-api-bh39sLd4F)
 - Live Site URL: [Add live site URL here](https://react-country-search.vercel.app/)
 
 ## My process
@@ -55,7 +56,7 @@ Users should be able to:
 
 ### What I learned
 
-Pretty much about React itself (JSX, components, hooks, state, etc), working with APIs and styling using SCSS
+Pretty much about React itself (JSX, components, hooks, state, etc), working with APIs and styling using SCSS.
 
 ### Continued development
 
