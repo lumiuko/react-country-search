@@ -49,6 +49,15 @@
       flex: initial !important;
     }
   }
+  .title {
+    flex: 3;
+  }
+  .btns-list {
+    flex: 10;
+    @include responsive(1200px) {
+      margin-top: 10px;
+    }
+  }
 }
 
 .btn-small {
@@ -56,6 +65,14 @@
   margin: 5px 10px;
   @include responsive(1200px) {
     margin: 5px 10px 10px 0;
+  }
+}
+
+.btn-back {
+  margin: 5rem 0;
+  @include responsive(800px) {
+    margin: 3rem 0;
+    font-size: 0.85rem;
   }
 }
 
@@ -74,10 +91,6 @@
   @include responsive(1200px) {
     margin-bottom: 10px;
   }
-}
-
-.btn-back {
-  margin: 5rem 0;
 }
 
 .theme-dark .btn-back::before {

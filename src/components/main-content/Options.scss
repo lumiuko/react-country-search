@@ -52,6 +52,7 @@
   align-items: center;
   background: url('../../img/icon/chevron-down-outline-black.svg') no-repeat 175px center, var(--elements-color);
   background-size: 18px;
+  user-select: none;
 }
 
 .theme-dark {

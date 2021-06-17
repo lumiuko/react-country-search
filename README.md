@@ -70,7 +70,7 @@ In my future React projects I want to learn and use Styled Components.
 ## Author
 
 - Frontend Mentor - [@flxemt](https://www.frontendmentor.io/profile/flxemt)
-- Twitter - [@flx_emt](https://twitter.com/flx_emt)
+- Twitter - [@flxemt](https://twitter.com/flxemt)
 
 ## Acknowledgments
 

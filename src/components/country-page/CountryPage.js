@@ -13,6 +13,7 @@ function CountryPage(props) {
   const [isError, setError] = useState(false);
 
   useEffect(() => {
+    const countryShortName = countryCodes.find(item => item.code.toLowerCase() === code).name;
     if (!props.countriesList.length) {
       setLoading(true);
       axios
@@ -25,6 +26,7 @@ function CountryPage(props) {
     } else {
       setCountryData(props.countriesList.find(country => country.alpha3Code === code.toUpperCase()));
     }
+    document.title = `${countryShortName} | Where in the world`;
   }, [props.countriesList, code]);
 
   const centerStyle = {
@@ -98,10 +100,8 @@ function CountryPage(props) {
           </div>
           {currentCountry.borders?.length > 0 && (
             <div className="borders">
-              <div className="text-bold" style={{ flex: '3' }}>
-                Border countries:{' '}
-              </div>
-              <div style={{ flex: '10' }}>
+              <div className="title text-bold">Border countries: </div>
+              <div className="btns-list">
                 {currentCountry.borders.map((country, index) => (
                   <Link to={`/country/${country.toLowerCase()}`} className="btn btn-small" key={index}>
                     {countryCodes.find(item => item.code === country).name}

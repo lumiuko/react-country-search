@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Options from './Options';
 import CountriesList from './CountriesList';
@@ -6,6 +6,10 @@ import CountriesList from './CountriesList';
 function MainContent(props) {
   const [searchString, setSearch] = useState('');
   const [filterString, setFilter] = useState('');
+
+  useEffect(() => {
+    document.title = 'Where in the world';
+  }, []);
 
   return (
     <div className="container">
