@@ -13,7 +13,7 @@ function CountryPage(props) {
   const [isError, setError] = useState(false);
 
   useEffect(() => {
-    const countryShortName = countryCodes.find(item => item.code.toLowerCase() === code).name;
+    const countryShortName = countryCodes.find(item => item.code.toLowerCase() === code)?.name ?? 'Error';
     if (!props.countriesList.length) {
       setLoading(true);
       axios
