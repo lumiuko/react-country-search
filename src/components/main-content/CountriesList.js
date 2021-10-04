@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import Card from './Card';
+import CountryCard from './CountryCard';
 import Skeletons from '../common/Skeletons';
 import './CountriesList.scss';
 
@@ -10,20 +10,24 @@ class CountriesList extends React.Component {
   state = {
     loading: false,
     allCountries: [],
-    countries: []
+    countries: [],
+    error: false
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setState({ loading: true });
     // Fetching countries list from API
-    axios.get('https://restcountries.eu/rest/v2/all').then(res => {
+    try {
+      const countriesData = await axios.get(`${process.env.REACT_APP_API_LINK}/all`);
       this.setState({
-        allCountries: res.data,
-        countries: res.data,
+        allCountries: countriesData.data,
+        countries: countriesData.data,
         loading: false
       });
-      this.props.sendCountriesList(res.data);
-    });
+      this.props.sendCountriesList(countriesData.data);
+    } catch (err) {
+      this.setState({ error: true });
+    }
   }
 
   componentDidUpdate(prevState) {
@@ -42,7 +46,11 @@ class CountriesList extends React.Component {
   }
 
   render() {
-    // Render skeletons is data is not yet loaded
+    if (this.state.error) {
+      return <h1>Oops, something went wrong</h1>;
+    }
+
+    // Render skeletons if data isn't loaded yet
     if (this.state.loading) {
       return (
         <section className="cards">
@@ -60,7 +68,7 @@ class CountriesList extends React.Component {
     const countryElements = this.state.countries.map(country => {
       return (
         <Link to={`/country/${country.alpha3Code.toLowerCase()}`} key={country.name}>
-          <Card country={country} />
+          <CountryCard country={country} />
         </Link>
       );
     });

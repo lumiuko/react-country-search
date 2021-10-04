@@ -12,7 +12,8 @@
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 9px;
     cursor: pointer;
-    transition: box-shadow 0.3s ease;
+    transition: all 0.2s ease;
+    height: 100%;
 
     img {
       height: 160px;
@@ -28,8 +29,14 @@
       padding: 0 1.5rem 1.5rem;
 
       .card-text {
+        margin: 1em 0;
         font-size: 0.9rem;
         line-height: 25px;
+        font-weight: 600;
+
+        .value {
+          font-weight: 400;
+        }
       }
     }
   }

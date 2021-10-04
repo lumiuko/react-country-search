@@ -17,7 +17,7 @@ function CountryPage(props) {
     if (!props.countriesList.length) {
       setLoading(true);
       axios
-        .get(`https://restcountries.eu/rest/v2/alpha/${code.toUpperCase()}`)
+        .get(`${process.env.REACT_APP_API_LINK}/alpha/${code.toUpperCase()}`)
         .then(res => {
           setCountryData(res.data);
           setLoading(false);
@@ -102,9 +102,9 @@ function CountryPage(props) {
             <div className="borders">
               <div className="title text-bold">Border countries: </div>
               <div className="btns-list">
-                {currentCountry.borders.map((country, index) => (
+                {currentCountry?.borders.map((country, index) => (
                   <Link to={`/country/${country.toLowerCase()}`} className="btn btn-small" key={index}>
-                    {countryCodes.find(item => item.code === country).name}
+                    {countryCodes.find(item => item.code === country)?.name || country}
                   </Link>
                 ))}
               </div>
