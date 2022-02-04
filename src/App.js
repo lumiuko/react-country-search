@@ -8,12 +8,11 @@ import MainContent from './components/main-content/MainContent';
 import CountryPage from './components/country-page/CountryPage';
 
 function App() {
-  const [isDarkTheme, setTheme] = useState(localStorage.getItem('theme-color') === 'dark');
-  const [countriesList, setCountriesData] = useState([]);
+  const [isDarkTheme, setDarkTheme] = useState(localStorage.getItem('theme-color') === 'dark');
 
   function themeEventHandler(event) {
     event.preventDefault();
-    setTheme(prevTheme => !prevTheme);
+    setDarkTheme(prevTheme => !prevTheme);
   }
 
   useEffect(() => {
@@ -26,10 +25,10 @@ function App() {
       <Navbar themeEventHandler={themeEventHandler} isDarkTheme={isDarkTheme} />
       <Switch>
         <Route path="/country/:code">
-          <CountryPage countriesList={countriesList} />
+          <CountryPage />
         </Route>
         <Route path="/">
-          <MainContent sendCountriesList={data => setCountriesData(data)} isDarkTheme={isDarkTheme} />
+          <MainContent isDarkTheme={isDarkTheme} />
         </Route>
       </Switch>
     </Router>

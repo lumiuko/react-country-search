@@ -10,37 +10,27 @@ function CountryPage(props) {
   const { code } = useParams();
   const [currentCountry, setCountryData] = useState({});
   const [isLoading, setLoading] = useState(false);
-  const [isError, setError] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const countryShortName = countryCodes.find(item => item.code.toLowerCase() === code)?.name ?? 'Error';
-    if (!props.countriesList.length) {
-      setLoading(true);
-      axios
-        .get(`${process.env.REACT_APP_API_LINK}/alpha/${code.toUpperCase()}`)
-        .then(res => {
-          setCountryData(res.data);
-          setLoading(false);
-        })
-        .catch(() => setError(true));
-    } else {
-      setCountryData(props.countriesList.find(country => country.alpha3Code === code.toUpperCase()));
-    }
+    setLoading(true);
+    axios
+      .get(`${process.env.REACT_APP_API_LINK}/alpha/${code.toUpperCase()}`)
+      .then(res => {
+        if (res.data.status >= 400) throw new Error(`${res.data.status} (${res.data.message})`);
+        setCountryData(res.data);
+        setLoading(false);
+      })
+      .catch(err => setError(err));
     document.title = `${countryShortName} | Where in the world`;
-  }, [props.countriesList, code]);
+  }, [code]);
 
-  const centerStyle = {
-    height: '80vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column'
-  };
-
-  if (isError) {
+  if (error) {
     return (
-      <div className="container" style={centerStyle}>
+      <div className="container center">
         <h1>Oops. Something went wrong</h1>
+        <p>{error.message}</p>
         <Link to="/" className="btn">
           Go to hompage
         </Link>
@@ -50,7 +40,7 @@ function CountryPage(props) {
 
   if (isLoading) {
     return (
-      <div className="container" style={centerStyle}>
+      <div className="container center">
         <img src={loaderIcon} alt="" style={{ width: '200px', height: '200px' }} />
       </div>
     );

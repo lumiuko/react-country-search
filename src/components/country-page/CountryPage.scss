@@ -25,6 +25,7 @@
   object-fit: cover;
   @include responsive(800px) {
     width: 100%;
+    aspect-ratio: auto;
   }
 }
 
@@ -95,4 +96,16 @@
 
 .theme-dark .btn-back::before {
   background: url('../../img/icon/left-arrow-white.svg') no-repeat;
+}
+
+.center {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    margin: 0;
+  }
 }
