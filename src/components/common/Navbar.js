@@ -15,6 +15,8 @@ function Navbar(props) {
             className="darkmode-icon"
             aria-hidden="true"
             alt=""
+            width="19"
+            height="19"
           />
           Dark Mode
         </span>

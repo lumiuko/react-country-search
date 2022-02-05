@@ -8,24 +8,21 @@ import './CountriesList.scss';
 
 function CountriesList(props) {
   // State
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [allCountries, setAllCountries] = useState([]);
   const [countries, setCountries] = useState([]);
-  const [error, setError] = useState(false);
+  const [isError, setError] = useState(false);
 
   // When first mounted
   useEffect(() => {
-    setIsLoading(true);
     axios
       .get(`${process.env.REACT_APP_API_LINK}/all`)
       .then(data => {
         setAllCountries(data.data);
         setCountries(data.data);
-        setIsLoading(false);
       })
-      .catch(() => {
-        setError(true);
-      });
+      .catch(() => setError(true))
+      .finally(() => setLoading(false));
   }, []);
 
   // When props (searchQuery, filterQuery) are changed
@@ -40,7 +37,7 @@ function CountriesList(props) {
   }, [props, allCountries]);
 
   // Something is wrong with the API
-  if (error) {
+  if (isError) {
     return <h1>Oops, something went wrong</h1>;
   }
 

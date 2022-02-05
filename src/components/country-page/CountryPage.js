@@ -3,18 +3,17 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import countryCodes from '../../json/country-codes.json';
-import loaderIcon from '../../img/loader.svg';
 import './CountryPage.scss';
 
-function CountryPage(props) {
+function CountryPage() {
   const { code } = useParams();
   const [currentCountry, setCountryData] = useState({});
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const countryShortName = countryCodes.find(item => item.code.toLowerCase() === code)?.name ?? 'Error';
     setLoading(true);
+    const countryShortName = countryCodes.find(item => item.code.toLowerCase() === code)?.name ?? 'Error';
     axios
       .get(`${process.env.REACT_APP_API_LINK}/alpha/${code.toUpperCase()}`)
       .then(res => {
@@ -41,7 +40,7 @@ function CountryPage(props) {
   if (isLoading) {
     return (
       <div className="container center">
-        <img src={loaderIcon} alt="" style={{ width: '200px', height: '200px' }} />
+        <img src="/loader.svg" alt="" style={{ width: '200px', height: '200px' }} />
       </div>
     );
   }
