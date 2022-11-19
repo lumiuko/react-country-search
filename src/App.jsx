@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './scss/App.scss';
 
@@ -21,17 +21,13 @@ function App() {
   });
 
   return (
-    <Router>
+    <BrowserRouter>
       <Navbar themeEventHandler={themeEventHandler} isDarkTheme={isDarkTheme} />
-      <Switch>
-        <Route path="/country/:code">
-          <CountryPage />
-        </Route>
-        <Route path="/">
-          <MainContent isDarkTheme={isDarkTheme} />
-        </Route>
-      </Switch>
-    </Router>
+      <Routes>
+        <Route path="/country/:code" element={<CountryPage />} />
+        <Route path="/" element={<MainContent isDarkTheme={isDarkTheme} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

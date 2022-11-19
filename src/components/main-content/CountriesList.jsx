@@ -16,7 +16,7 @@ function CountriesList(props) {
   // When first mounted
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_LINK}/all`)
+      .get(`${import.meta.env.VITE_APP_API_URL}/all`)
       .then(data => {
         setAllCountries(data.data);
         setCountries(data.data);
@@ -29,8 +29,7 @@ function CountriesList(props) {
   useEffect(() => {
     const filteredCountries = allCountries.filter(country => {
       return (
-        country.name.toLowerCase().includes(props.searchQuery.toLowerCase()) &&
-        (country.region === props.filterQuery || !props.filterQuery)
+        country.name.toLowerCase().includes(props.searchQuery.toLowerCase()) && (country.region === props.filterQuery || !props.filterQuery)
       );
     });
     setCountries(filteredCountries);

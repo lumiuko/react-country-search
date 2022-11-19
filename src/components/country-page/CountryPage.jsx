@@ -15,7 +15,7 @@ function CountryPage() {
     setLoading(true);
     const countryShortName = countryCodes.find(item => item.code.toLowerCase() === code)?.name ?? 'Error';
     axios
-      .get(`${process.env.REACT_APP_API_LINK}/alpha/${code.toUpperCase()}`)
+      .get(`${import.meta.env.VITE_APP_API_URL}/alpha/${code.toUpperCase()}`)
       .then(res => {
         if (res.data.status >= 400) throw new Error(`${res.data.status} (${res.data.message})`);
         setCountryData(res.data);
