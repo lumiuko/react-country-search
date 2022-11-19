@@ -52,7 +52,7 @@ Users should be able to:
 - CSS Grid
 - [React](https://reactjs.org/) - JS library
 - [React Transition Group](https://reactcommunity.org/react-transition-group/) - For transitions
-- [react-content-loader](https://github.com/danilowoz/react-content-loader) - For "skeletons" while loading
+- [react-content-loader](https://github.com/danilowoz/react-content-loader) - For placeholders while the content is loading
 
 ### What I learned
 
@@ -65,7 +65,7 @@ In my future React projects I want to learn and use Styled Components.
 ### Useful resources
 
 - [Scrimba React Course](https://scrimba.com/learn/learnreact) - An awesome course for learning React.
-- [Dev.to article about adding animations to react app](https://dev.to/underdogio/adding-animations-to-your-react-app-with-react-transition-group) - This is an amazing article which helped me finally React Transition Group.
+- [Dev.to article about adding animations to react app](https://dev.to/underdogio/adding-animations-to-your-react-app-with-react-transition-group) - This is an amazing article which helped me finally understand React Transition Group.
 
 ## Author
 
