@@ -12,7 +12,7 @@ function Options(props) {
         className="input country-search"
         placeholder="Search for a country..."
       />
-      <Dropdown onSelect={value => props.onFilterChange(value)} regions={regions} isDarkTheme={props.isDarkTheme} />
+      <Dropdown onSelect={value => props.onFilterChange(value)} regions={regions} />
     </div>
   );
 }

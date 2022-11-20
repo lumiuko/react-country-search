@@ -1,7 +1,7 @@
 function CountryCard(props) {
   return (
     <div className="card">
-      <img src={props.country.flag} className="card-img-top" alt={`${props.country.name} flag`} />
+      <img src={props.country.flag} className="card-img-top" aria-hidden="true" alt={`${props.country.name} flag`} />
       <div className="card-body">
         <h3 className="card-title">{props.country.name}</h3>
         <div className="card-text">

@@ -21,11 +21,17 @@
 }
 
 .dark-btn {
-  font-weight: 600;
+  background: transparent;
+  border: none;
+  padding: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   user-select: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--text-color);
 }
 
 .darkmode-icon {

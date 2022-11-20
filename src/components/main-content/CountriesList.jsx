@@ -44,7 +44,7 @@ function CountriesList(props) {
   if (isLoading) {
     return (
       <section className="cards">
-        <Skeletons isDarkTheme={props.isDarkTheme} />
+        <Skeletons />
       </section>
     );
   }

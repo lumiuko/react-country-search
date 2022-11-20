@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import './scss/App.scss';
 
 import Navbar from './components/common/Navbar';
 import MainContent from './components/main-content/MainContent';
 import CountryPage from './components/country-page/CountryPage';
 
+export const ThemeContext = createContext();
+
 function App() {
   const [isDarkTheme, setDarkTheme] = useState(localStorage.getItem('theme-color') === 'dark');
 
-  function themeEventHandler(event) {
-    event.preventDefault();
+  function themeEventHandler() {
     setDarkTheme(prevTheme => !prevTheme);
   }
 
@@ -21,13 +21,15 @@ function App() {
   });
 
   return (
-    <BrowserRouter>
-      <Navbar themeEventHandler={themeEventHandler} isDarkTheme={isDarkTheme} />
-      <Routes>
-        <Route path="/country/:code" element={<CountryPage />} />
-        <Route path="/" element={<MainContent isDarkTheme={isDarkTheme} />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeContext.Provider value={isDarkTheme}>
+      <BrowserRouter>
+        <Navbar themeEventHandler={themeEventHandler} />
+        <Routes>
+          <Route path="/country/:code" element={<CountryPage />} />
+          <Route path="/" element={<MainContent />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeContext.Provider>
   );
 }
 

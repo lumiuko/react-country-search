@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Options from './Options';
 import CountriesList from './CountriesList';
 
-function MainContent(props) {
+function MainContent() {
   const [searchString, setSearchString] = useState('');
   const [filterString, setFilterString] = useState('');
 
@@ -13,12 +13,8 @@ function MainContent(props) {
 
   return (
     <div className="container">
-      <Options
-        searchHandler={value => setSearchString(value)}
-        onFilterChange={value => setFilterString(value)}
-        isDarkTheme={props.isDarkTheme}
-      />
-      <CountriesList searchQuery={searchString} filterQuery={filterString} isDarkTheme={props.isDarkTheme} />
+      <Options searchHandler={value => setSearchString(value)} onFilterChange={value => setFilterString(value)} />
+      <CountriesList searchQuery={searchString} filterQuery={filterString} />
     </div>
   );
 }

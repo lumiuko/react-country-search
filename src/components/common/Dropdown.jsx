@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { ThemeContext } from '../../App';
 
 import './Dropdown.scss';
 import blackIcon from '../../img/icon/close-circle-outline-black.svg';
@@ -27,6 +28,7 @@ function Dropdown(props) {
   // Initializing hooks
   const [isExpanded, setExpand] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
+  const isDarkTheme = useContext(ThemeContext);
 
   const wrapperRef = useRef(null);
   useOutside(wrapperRef, isExpanded, setExpand);
@@ -66,7 +68,7 @@ function Dropdown(props) {
       <div onClick={handleClick} className="region-filter">
         <div className="placeholder">{selectedItem || 'Filter by Region'}</div>
         <div className="clear-filter" onClick={clearFilter} style={{ display: selectedItem ? 'block' : 'none' }}>
-          <img src={props.isDarkTheme ? whiteIcon : blackIcon} alt="" aria-hidden="true" />
+          <img src={isDarkTheme ? whiteIcon : blackIcon} alt="" aria-hidden="true" />
         </div>
       </div>
       <CSSTransition in={isExpanded} timeout={300} unmountOnExit classNames="select-box-body">
