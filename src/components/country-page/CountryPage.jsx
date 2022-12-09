@@ -8,7 +8,7 @@ import './CountryPage.scss';
 function CountryPage() {
   const { code } = useParams();
   const [currentCountry, setCountryData] = useState({});
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
