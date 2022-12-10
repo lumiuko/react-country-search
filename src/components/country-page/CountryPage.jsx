@@ -12,7 +12,6 @@ function CountryPage() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     const countryShortName = countryCodes.find(item => item.code.toLowerCase() === code)?.name ?? 'Error';
     axios
       .get(`${import.meta.env.VITE_APP_API_URL}/alpha/${code.toUpperCase()}`)
