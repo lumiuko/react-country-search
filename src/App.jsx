@@ -1,24 +1,24 @@
-import React, { useState, useEffect, createContext } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './scss/App.scss';
+import React, { useState, useEffect, createContext } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './scss/App.scss'
 
-import Navbar from './components/common/Navbar';
-import MainContent from './components/main-content/MainContent';
-import CountryPage from './components/country-page/CountryPage';
+import Navbar from './components/common/Navbar'
+import MainContent from './components/main-content/MainContent'
+import CountryPage from './components/country-page/CountryPage'
 
-export const ThemeContext = createContext();
+export const ThemeContext = createContext()
 
 function App() {
-  const [isDarkTheme, setDarkTheme] = useState(localStorage.getItem('theme-color') === 'dark');
+  const [isDarkTheme, setIsDarkTheme] = useState(localStorage.getItem('theme-color') === 'dark')
 
   function themeEventHandler() {
-    setDarkTheme(prevTheme => !prevTheme);
+    setIsDarkTheme(prevTheme => !prevTheme)
   }
 
   useEffect(() => {
-    isDarkTheme ? document.body.classList.add('theme-dark') : document.body.classList.remove('theme-dark');
-    localStorage.setItem('theme-color', isDarkTheme ? 'dark' : 'light');
-  });
+    document.body.className = isDarkTheme ? 'theme-dark' : ''
+    localStorage.setItem('theme-color', isDarkTheme ? 'dark' : 'light')
+  }, [isDarkTheme])
 
   return (
     <ThemeContext.Provider value={isDarkTheme}>
@@ -30,7 +30,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </ThemeContext.Provider>
-  );
+  )
 }
 
-export default App;
+export default App

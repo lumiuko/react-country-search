@@ -1,12 +1,12 @@
-import { useContext } from 'react';
-import ContentLoader from 'react-content-loader';
-import { ThemeContext } from '../../App';
+import { useContext } from 'react'
+import ContentLoader from 'react-content-loader'
+import { ThemeContext } from '../../App'
 
 function Skeletons() {
-  const isDarkTheme = useContext(ThemeContext);
+  const isDarkTheme = useContext(ThemeContext)
 
   // Set up skeleton loading and fill an array with 12 items
-  const skeletons = [];
+  const skeletons = []
   for (let i = 0; i < 12; i++) {
     skeletons.push(
       <ContentLoader
@@ -26,9 +26,9 @@ function Skeletons() {
         <rect x="12" y="300" rx="3" ry="3" width="315" height="15" />
         <rect x="12" y="325" rx="3" ry="3" width="315" height="15" />
       </ContentLoader>
-    );
+    )
   }
-  return skeletons;
+  return skeletons
 }
 
-export default Skeletons;
+export default Skeletons

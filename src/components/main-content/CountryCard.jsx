@@ -17,7 +17,7 @@ function CountryCard(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default CountryCard;
+export default CountryCard

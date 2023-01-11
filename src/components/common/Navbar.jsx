@@ -1,13 +1,13 @@
-import { useContext } from 'react';
-import { ThemeContext } from '../../App';
-import './Navbar.scss';
+import { useContext } from 'react'
+import { ThemeContext } from '../../App'
+import './Navbar.scss'
 
 function Navbar(props) {
-  const isDarkTheme = useContext(ThemeContext);
+  const isDarkTheme = useContext(ThemeContext)
 
   const iconURL = isDarkTheme
     ? 'https://unpkg.com/ionicons@5.5.1/dist/svg/moon.svg'
-    : 'https://unpkg.com/ionicons@5.5.1/dist/svg/moon-outline.svg';
+    : 'https://unpkg.com/ionicons@5.5.1/dist/svg/moon-outline.svg'
   return (
     <nav className="navbar">
       <div className="container">
@@ -25,7 +25,7 @@ function Navbar(props) {
         </button>
       </div>
     </nav>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

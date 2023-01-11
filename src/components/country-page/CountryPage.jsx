@@ -1,28 +1,28 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
-import countryCodes from '../../json/country-codes.json';
-import './CountryPage.scss';
+import countryCodes from '../../json/country-codes.json'
+import './CountryPage.scss'
 
 function CountryPage() {
-  const { code } = useParams();
-  const [currentCountry, setCountryData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const { code } = useParams()
+  const [currentCountry, setCurrentCountry] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
-    const countryShortName = countryCodes.find(item => item.code.toLowerCase() === code)?.name ?? 'Error';
+    const countryShortName = countryCodes.find(item => item.code.toLowerCase() === code)?.name ?? 'Error'
     axios
       .get(`${import.meta.env.VITE_APP_API_URL}/alpha/${code.toUpperCase()}`)
       .then(res => {
-        if (res.data.status >= 400) throw new Error(`${res.data.status} (${res.data.message})`);
-        setCountryData(res.data);
-        setLoading(false);
+        if (res.data.status >= 400) throw new Error(`${res.data.status} (${res.data.message})`)
+        setCurrentCountry(res.data)
+        setIsLoading(false)
       })
-      .catch(err => setError(err));
-    document.title = `${countryShortName} | Where in the world`;
-  }, [code]);
+      .catch(err => setError(err))
+    document.title = `${countryShortName} | Where in the world`
+  }, [code])
 
   if (error) {
     return (
@@ -33,7 +33,7 @@ function CountryPage() {
           Go to hompage
         </Link>
       </div>
-    );
+    )
   }
 
   if (isLoading) {
@@ -41,7 +41,7 @@ function CountryPage() {
       <div className="container center">
         <img src="/loader.svg" alt="" style={{ width: '200px', height: '200px' }} />
       </div>
-    );
+    )
   }
 
   return (
@@ -101,7 +101,7 @@ function CountryPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default CountryPage;
+export default CountryPage

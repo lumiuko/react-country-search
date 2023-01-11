@@ -1,7 +1,7 @@
-import Dropdown from '../common/Dropdown';
-import regions from '../../json/regions';
+import Dropdown from '../common/Dropdown'
+import regions from '../../json/regions'
 
-import './Options.scss';
+import './Options.scss'
 
 function Options(props) {
   return (
@@ -14,7 +14,7 @@ function Options(props) {
       />
       <Dropdown onSelect={value => props.onFilterChange(value)} regions={regions} />
     </div>
-  );
+  )
 }
 
-export default Options;
+export default Options
