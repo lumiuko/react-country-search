@@ -33,7 +33,7 @@
   padding-left: 65px;
   padding-right: 30px;
   width: clamp(250px, 50%, 500px);
-  background: url('../../img/icon/search-outline-black.svg') no-repeat 25px 20px, var(--elements-color);
+  background: url('../../assets/img/search-outline-black.svg') no-repeat 25px 20px, var(--elements-color);
   background-size: 25px;
   @include responsive(620px) {
     margin-bottom: 30px;
@@ -50,18 +50,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: url('../../img/icon/chevron-down-outline-black.svg') no-repeat 175px center, var(--elements-color);
+  background: url('../../assets/img/chevron-down-outline-black.svg') no-repeat 175px center, var(--elements-color);
   background-size: 18px;
   user-select: none;
 }
 
 .theme-dark {
   .region-filter {
-    background: url('../../img/icon/chevron-down-outline-white.svg') no-repeat 175px center, var(--elements-color);
+    background: url('../../assets/img/chevron-down-outline-white.svg') no-repeat 175px center, var(--elements-color);
     background-size: 18px;
   }
   .country-search {
-    background: url('../../img/icon/search-outline-white.svg') no-repeat 25px 20px, var(--elements-color);
+    background: url('../../assets/img/search-outline-white.svg') no-repeat 25px 20px, var(--elements-color);
     background-size: 25px;
   }
 }

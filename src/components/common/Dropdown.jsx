@@ -3,8 +3,8 @@ import { CSSTransition } from 'react-transition-group'
 import { ThemeContext } from '../../context/ThemeContext'
 
 import './Dropdown.scss'
-import blackIcon from '../../img/icon/close-circle-outline-black.svg'
-import whiteIcon from '../../img/icon/close-circle-outline-white.svg'
+import blackIcon from '../../assets/img/close-circle-outline-black.svg'
+import whiteIcon from '../../assets/img/close-circle-outline-white.svg'
 
 function useOutside(ref, isExpanded, setIsExpanded) {
   useEffect(() => {
@@ -67,11 +67,7 @@ function Dropdown(props) {
     <div ref={wrapperRef} className="select-box">
       <div onClick={handleClick} className="region-filter">
         <div className="placeholder">{selectedItem || 'Filter by Region'}</div>
-        <div
-          className="clear-filter"
-          onClick={clearFilter}
-          style={{ display: selectedItem ? 'block' : 'none' }}
-        >
+        <div className="clear-filter" onClick={clearFilter} style={{ display: selectedItem ? 'block' : 'none' }}>
           <img src={isDarkTheme ? whiteIcon : blackIcon} alt="" aria-hidden="true" />
         </div>
       </div>
