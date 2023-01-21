@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 import ContentLoader from 'react-content-loader'
-import { ThemeContext } from '../../App'
+import { ThemeContext } from '../../context/ThemeContext'
 
 function Skeletons() {
-  const isDarkTheme = useContext(ThemeContext)
+  const { isDarkTheme } = useContext(ThemeContext)
 
   // Set up skeleton loading and fill an array with 12 items
   const skeletons = []

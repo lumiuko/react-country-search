@@ -1,9 +1,9 @@
 import { useContext } from 'react'
-import { ThemeContext } from '../../App'
+import { ThemeContext } from '../../context/ThemeContext'
 import './Navbar.scss'
 
-function Navbar(props) {
-  const isDarkTheme = useContext(ThemeContext)
+function Navbar() {
+  const { isDarkTheme, toggleTheme } = useContext(ThemeContext)
 
   const iconURL = isDarkTheme
     ? 'https://unpkg.com/ionicons@5.5.1/dist/svg/moon.svg'
@@ -12,7 +12,7 @@ function Navbar(props) {
     <nav className="navbar">
       <div className="container">
         <h1 className="navbar-logo">Where in the world?</h1>
-        <button className="dark-btn" onClick={e => props.themeEventHandler(e)} aria-pressed={isDarkTheme}>
+        <button className="dark-btn" onClick={toggleTheme} aria-pressed={isDarkTheme}>
           <img
             src={iconURL}
             style={{ filter: isDarkTheme && 'invert(1)' }}
