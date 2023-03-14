@@ -40,14 +40,17 @@ function Dropdown(props) {
 
   // When user clicks on item
   function selectItem(event) {
-    setSelectedItem(event.target.textContent || '')
+    const text = event.target.textContent || ''
+    props.onSelect(text)
     setIsExpanded(false)
+    setSelectedItem(text)
   }
 
   function clearFilter(event) {
     event.stopPropagation()
     setSelectedItem('')
     setIsExpanded(false)
+    props.onSelect(null)
   }
 
   const { regions } = props
@@ -58,10 +61,6 @@ function Dropdown(props) {
       {item.name}
     </li>
   ))
-
-  useEffect(() => {
-    props.onSelect(selectedItem)
-  })
 
   return (
     <div ref={wrapperRef} className="select-box">
